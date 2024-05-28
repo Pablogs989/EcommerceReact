@@ -1,0 +1,27 @@
+@import "../../colors.scss";
+
+.header {
+  background-color: $header-bg-color;
+  padding: 16px;
+  
+  nav {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+    
+    span {
+      a {
+        text-decoration: none;
+        color: $link-color;
+        font-size: 18px;
+        transition: color 0.4s ease;
+        
+        &:hover {
+          color: $link-hover-color;
+        }
+      }
+    }
+    
+  }
+}
