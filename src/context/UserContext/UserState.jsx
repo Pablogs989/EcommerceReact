@@ -69,6 +69,22 @@ export const UserProvider = ({ children }) => {
         console.error(error);
     }
   }
+
+const register = async (user) => {
+    try {
+      const res = await axios.post(API_URL + "/", user);
+      dispatch({
+        type: "REGISTER",
+        payload: res.data,
+      });
+      if (res.data) {
+        localStorage.setItem("token", res.data.token);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -76,7 +92,8 @@ export const UserProvider = ({ children }) => {
         user: state.user,
         login,
         getLoggedUserInfo,
-        logout
+        logout,
+        register
       }}
     >
       {children}
