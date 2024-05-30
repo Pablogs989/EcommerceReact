@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Products from "./components/Products/Products";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
+import Admin from "./components/Admin/Admin";
 import { UserProvider } from "./context/UserContext/UserState";
 import { ProductProvider } from "./context/ProductContext/ProductState";
 
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/admin" element={<Admin />} />
               </Routes>
             </ProductProvider>
           </UserProvider>
