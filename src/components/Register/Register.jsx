@@ -11,9 +11,9 @@ const Register = () => {
   const navigate = useNavigate();
   const onFinish = (values) => {
     register(values);
-    navigate("/profile");
+    navigate("/login");
     notification.success({
-      message: "Welcome",
+      message: "Registered successfully! Please login.",
     });
   };
 
@@ -36,6 +36,18 @@ const Register = () => {
         onFinish={onFinish}
         autoComplete="on"
       >
+        <Form.Item
+          label="Name"
+          name="name"
+          rules={[
+            {
+              required: true,
+              message: "Please input your name!",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
         <Form.Item
           label="Email"
           name="email"
@@ -65,7 +77,18 @@ const Register = () => {
         >
           <Input.Password />
         </Form.Item>
-
+        <Form.Item
+          label="Shipping Address"
+          name="shippingAddress"
+          rules={[
+            {
+              required: true,
+              message: "Please input your adress!",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
         <Form.Item
           wrapperCol={{
             offset: 8,

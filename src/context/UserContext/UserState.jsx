@@ -73,13 +73,6 @@ export const UserProvider = ({ children }) => {
 const register = async (user) => {
     try {
       const res = await axios.post(API_URL + "/", user);
-      dispatch({
-        type: "REGISTER",
-        payload: res.data,
-      });
-      if (res.data) {
-        localStorage.setItem("token", res.data.token);
-      }
     } catch (error) {
       console.error(error);
     }

@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react'
+import { ProductContext } from '../../context/ProductContext/ProductState'
+import Product from '../Product/Product'
 
 const Products = () => {
-    return (
-        <div>
-            <h1>Products</h1>
-        </div>
-    );
-};
+    const {getProducts} = useContext(ProductContext)
 
-export default Products;
+    useEffect(()=>{
+        getProducts()
+    },[])
+
+  return (
+    <div>
+        <Product/>
+    </div>
+  )
+}
+
+export default Products
