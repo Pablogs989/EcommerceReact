@@ -14,9 +14,11 @@ import Register from "./components/Register/Register";
 
 function App() {
   return (
-    <>
+    <div className="App">
       <body>
         <Router>
+        <div className="content">
+
           <Header />
           <UserProvider>
             <ProductProvider>
@@ -30,10 +32,11 @@ function App() {
               </Routes>
             </ProductProvider>
           </UserProvider>
+          </div>
           <Footer />
         </Router>
       </body>
-    </>
+    </div>
   );
 }
 
