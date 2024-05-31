@@ -5,10 +5,11 @@ import { useReducer } from "react";
 import { notification } from "antd";
 
 const token = localStorage.getItem("token") || "";
+const user = JSON.parse(localStorage.getItem("user")) || null;
 
 const initialState = {
   token: token,
-  user: null,
+  user: user,
 };
 
 const API_URL = "http://localhost:3001/users";
@@ -45,6 +46,9 @@ export const UserProvider = ({ children }) => {
           Authorization: token,
         },
       });
+      if (res.data) {
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+      }
       dispatch({
         type: "GET_USER_INFO",
         payload: res.data,

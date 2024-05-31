@@ -18,6 +18,7 @@ const Product = () => {
   const onChangeMax = (e) => {
     setPriceFilterMax(e)
   };
+  
   return (
     <div>
       <Input

@@ -12,15 +12,16 @@ import { ProductProvider } from "./context/ProductContext/ProductState";
 import Profile from "./components/Profile/Profile";
 import Register from "./components/Register/Register";
 import CreateProduct from "./components/CreateProduct/CreateProduct";
+import DeleteProducts from "./components/DeleteProducts/DeleteProducts";
 
 function App() {
   return (
     <div className="App">
       <body>
         <Router>
-          <div className="content">
             <UserProvider>
               <ProductProvider>
+          <div className="content">
                 <Header />
                 <Routes>
                   <Route path="/" element={<Home />} />
@@ -31,10 +32,11 @@ function App() {
                   <Route path="/register" element={<Register />} />
                   <Route path="/admin" element={<Admin />} />
                   <Route path="/createProduct" element={<CreateProduct />} />
+                  <Route path="/deleteProducts" element={<DeleteProducts />} />
                 </Routes>
+          </div>
               </ProductProvider>
             </UserProvider>
-          </div>
           <Footer />
         </Router>
       </body>

@@ -38,6 +38,30 @@ export const ProductProvider = ({ children }) => {
         })
     }
 
+    const createProduct = async (product) => {
+      try {
+        const res = await axios.post(API_URL + "/", product, {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const deleteProduct = async (id) => {
+      try {
+        const res = await axios.delete(API_URL + "/id/" + id, {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
     return (
         <ProductContext.Provider
           value={{
@@ -45,7 +69,9 @@ export const ProductProvider = ({ children }) => {
             cart:state.cart,
             getProducts,
             addCart,
-            clearCart
+            clearCart,
+            createProduct,
+            deleteProduct
           }}
         >
           {children}
