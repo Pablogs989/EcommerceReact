@@ -9,31 +9,31 @@ import Login from "./components/Login/Login";
 import Admin from "./components/Admin/Admin";
 import { UserProvider } from "./context/UserContext/UserState";
 import { ProductProvider } from "./context/ProductContext/ProductState";
-
 import Profile from "./components/Profile/Profile";
 import Register from "./components/Register/Register";
+import CreateProduct from "./components/CreateProduct/CreateProduct";
 
 function App() {
   return (
     <div className="App">
       <body>
         <Router>
-        <div className="content">
-
-          <Header />
-          <UserProvider>
-            <ProductProvider>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/admin" element={<Admin />} />
-              </Routes>
-            </ProductProvider>
-          </UserProvider>
+          <div className="content">
+            <UserProvider>
+              <ProductProvider>
+                <Header />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/profile" element={<Profile />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/admin" element={<Admin />} />
+                  <Route path="/createProduct" element={<CreateProduct />} />
+                </Routes>
+              </ProductProvider>
+            </UserProvider>
           </div>
           <Footer />
         </Router>
