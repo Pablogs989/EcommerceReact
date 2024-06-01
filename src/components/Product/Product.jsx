@@ -1,18 +1,32 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../../context/ProductContext/ProductState";
-import { Spin, InputNumber, Input, Button, Dropdown, Space } from "antd";
+import {
+  Spin,
+  InputNumber,
+  Input,
+  Dropdown,
+  Space,
+  notification,
+} from "antd";
 import { CategoryContext } from "../../context/CategoryContext/CategoryState";
 import { DownOutlined } from "@ant-design/icons";
-import './Product.scss';
+import "./Product.scss";
 
 const Product = () => {
-  const { products, addCart } = useContext(ProductContext);
+  const { products, addCart, cart } = useContext(ProductContext);
   const { categories } = useContext(CategoryContext);
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [priceFilterMax, setPriceFilterMax] = useState("");
   const [priceFilterMin, setPriceFilterMin] = useState("");
-  
+
+  const handleAddToCart = (product) => {
+    addCart(product);
+    notification.success({
+      message: "Product added to the cart",
+    });
+  };
+
   if (products.length === 0) {
     return <Spin size="large" />;
   }
@@ -42,7 +56,7 @@ const Product = () => {
       >
         <a onClick={(e) => e.preventDefault()}>
           <Space>
-            Category: {categoryFilter || "All"} 
+            Category: {categoryFilter || "All"}
             <DownOutlined />
           </Space>
         </a>
@@ -91,7 +105,7 @@ const Product = () => {
               <div className="product-card" key={product.id}>
                 <h2>{product.name}</h2>
                 <p>{product.price}€</p>
-                <button onClick={() => addCart(product)}>Add to Cart</button>
+                <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
               </div>
             );
           })}

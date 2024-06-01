@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { ProductContext } from "../../context/ProductContext/ProductState";
 import { UserContext } from "../../context/UserContext/UserState";
 import { Link } from "react-router-dom";
@@ -10,6 +10,20 @@ const Cart = () => {
   const { cart, clearCart } = useContext(ProductContext);
   const { getLoggedUserInfo } = useContext(UserContext);
   const token = localStorage.getItem("token");
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    // Calcular el precio total cada vez que el carrito cambie
+    calculateTotalPrice();
+  }, [cart]);
+
+  const calculateTotalPrice = () => {
+    let total = 0;
+    cart.forEach((product) => {
+      total += parseFloat(product.price);
+    });
+    setTotalPrice(total);
+  };
 
   if (cart.length === 0) {
     return (
@@ -50,6 +64,10 @@ const Cart = () => {
           <p>{product.price}</p>
         </div>
       ))}
+      
+      <div className="total-price">
+        <h3>Total Price: {totalPrice}€</h3>
+      </div>
     </div>
   );
 };
