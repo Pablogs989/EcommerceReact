@@ -1,10 +1,11 @@
 import React from "react";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
+import "./Admin.scss";
 
 const Admin = () => {
   return (
-    <div>
+    <div className="admin-panel">
       <h1>Admin Panel</h1>
       <Button type="primary" size="large">
         <Link to="/createproduct">Create Product</Link>

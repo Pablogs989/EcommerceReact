@@ -1,0 +1,39 @@
+.admin-panel {
+    text-align: center;
+    margin-top: 50px;
+  
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #333;
+    }
+  
+    .ant-btn {
+      margin: 10px;
+  
+      a {
+        color: #fff;
+      }
+  
+      &:first-of-type {
+        background-color: #1890ff;
+        border-color: #1890ff;
+  
+        &:hover {
+          background-color: #40a9ff;
+          border-color: #40a9ff;
+        }
+      }
+  
+      &:last-of-type {
+        background-color: #ff4d4f;
+        border-color: #ff4d4f;
+  
+        &:hover {
+          background-color: #ff7875;
+          border-color: #ff7875;
+        }
+      }
+    }
+  }
+  

@@ -9,6 +9,7 @@ import Login from "./components/Login/Login";
 import Admin from "./components/Admin/Admin";
 import { UserProvider } from "./context/UserContext/UserState";
 import { ProductProvider } from "./context/ProductContext/ProductState";
+import { CategoryProvider } from "./context/CategoryContext/CategoryState";
 import Profile from "./components/Profile/Profile";
 import Register from "./components/Register/Register";
 import CreateProduct from "./components/CreateProduct/CreateProduct";
@@ -19,24 +20,29 @@ function App() {
     <div className="App">
       <body>
         <Router>
-            <UserProvider>
-              <ProductProvider>
-          <div className="content">
-                <Header />
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/cart" element={<Cart />} />
-                  <Route path="/products" element={<Products />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/admin" element={<Admin />} />
-                  <Route path="/createProduct" element={<CreateProduct />} />
-                  <Route path="/deleteProducts" element={<DeleteProducts />} />
-                </Routes>
-          </div>
-              </ProductProvider>
-            </UserProvider>
+          <UserProvider>
+            <ProductProvider>
+              <CategoryProvider>
+                <div className="content">
+                  <Header />
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/products" element={<Products />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/admin" element={<Admin />} />
+                    <Route path="/createProduct" element={<CreateProduct />} />
+                    <Route
+                      path="/deleteProducts"
+                      element={<DeleteProducts />}
+                    />
+                  </Routes>
+                </div>
+              </CategoryProvider>
+            </ProductProvider>
+          </UserProvider>
           <Footer />
         </Router>
       </body>

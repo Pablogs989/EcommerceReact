@@ -1,0 +1,78 @@
+@import "../../colors.scss";
+
+.product-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .dropdown-category {
+    margin-bottom: 20px;
+    color:#333;
+  }
+  
+  .input-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px;
+
+    input[type="text"] {
+      flex: 2;
+    }
+
+    .ant-input-number {
+      flex: 1;
+    }
+  }
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .product-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+        font-size: 24px;
+        color: #333;
+        margin: 0 0 10px;
+    }
+
+    p {
+        font-size: 20px;
+        color: #666;
+    }
+
+    button {
+        margin-top: auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #444445;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #444445;
+            color: $main-color;
+        }
+    }
+}
