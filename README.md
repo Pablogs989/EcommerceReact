@@ -58,3 +58,25 @@ Se utiliza el componente `notification` de Ant Design para mostrar notificacione
 ## Navegación
 
 Se utiliza `react-router-dom` para gestionar la navegación entre las diferentes rutas de la aplicación.
+
+## Demo
+
+![](/src/assets/register.png)
+
+![](/src/assets/login.png)
+
+![](/src/assets/landing.png)
+
+![](/src/assets/products.png)
+
+![](/src/assets/cart.png)
+
+![](/src/assets/profile.png)
+
+### Admin
+
+![](/src/assets/create.png)
+
+![](/src/assets/delete.png)
+
+
